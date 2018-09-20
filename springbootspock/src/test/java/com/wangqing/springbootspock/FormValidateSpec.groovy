@@ -31,7 +31,7 @@ class FormValidateSpec extends  Specification{
         resultActions.andReturn().response.getContentAsString().contains("不能")
     }
 
-    def '添加学生&实现 validator'() {
+    def '添加学生&用表单POST方式提交'() {
         when: '调用addStudent'
         def resultActions = mockMvc.perform(post('/student/save2')).andDo(MockMvcResultHandlers.print())
         then:
@@ -40,7 +40,7 @@ class FormValidateSpec extends  Specification{
     }
 
 
-    def '添加学生&实现 validator postJson'() {
+    def '添加学生&用JSON POST方式提交'() {
         when: '调用addStudent'
         def resultActions = mockMvc.perform(post('/student/save3').contentType(MediaType.APPLICATION_JSON_UTF8_VALUE).content("{}")).andDo(MockMvcResultHandlers.print())
         then:
