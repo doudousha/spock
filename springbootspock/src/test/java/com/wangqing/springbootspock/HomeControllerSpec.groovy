@@ -17,7 +17,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 
 @SpringBootTest(classes = SpringbootspockApplication.class)
-
 class HomeControllerSpec extends Specification {
 
     @Autowired
@@ -31,7 +30,7 @@ class HomeControllerSpec extends Specification {
 
     def '访问首页'() {
         when: '调用addStudent'
-        def resultActions = mockMvc.perform(get('/home'))  .andDo(MockMvcResultHandlers.print())
+        def resultActions = mockMvc.perform(get('/home')) .andDo(MockMvcResultHandlers.print())
         print "输出status:"+resultActions.andReturn().response.getStatus()
         print "输出:"+resultActions.andReturn().response.getContentAsString();
         then:
@@ -40,11 +39,4 @@ class HomeControllerSpec extends Specification {
     }
 
 
-    def '添加学生'() {
-        when: '调用addStudent'
-        def resultActions = mockMvc.perform(post('/student'))  .andDo(MockMvcResultHandlers.print())
-        then:
-
-        resultActions.andReturn().response.getContentAsString().contains("不能")
-    }
 }

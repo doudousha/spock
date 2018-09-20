@@ -23,13 +23,4 @@ public class HomeController {
         return   "home";
     }
 
-    @RequestMapping(value = "student")
-    @ResponseBody
-    public String addStudent(@Valid Student student, BindingResult bindingResult) {
-
-        if(bindingResult.hasErrors())  {
-            return bindingResult.getAllErrors().get(0).getDefaultMessage();
-        }
-        return "ok";
-    }
 }
